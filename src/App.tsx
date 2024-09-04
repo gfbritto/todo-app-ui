@@ -1,12 +1,12 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import TasksList from "./pages/TasksList";
+import TodoList from "./pages/TodoList";
 import theme from "./styles/Theme";
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <>
-        <TasksList />
+        <TodoList />
       </>
     </ChakraProvider>
   );
