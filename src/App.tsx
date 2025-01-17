@@ -1,9 +1,13 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import TodoList from "./pages/TodoList";
+import theme from "./styles/Theme";
 
 function App() {
   return (
-    <ChakraProvider>
-      <div>Container</div>
+    <ChakraProvider theme={theme}>
+      <>
+        <TodoList />
+      </>
     </ChakraProvider>
   );
 }
