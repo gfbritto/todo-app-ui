@@ -10,6 +10,8 @@ import Header from "../components/Header";
 import { FormEvent, useState } from "react";
 import { AddIcon } from "@chakra-ui/icons";
 import TodoItem from "../components/TodoItem";
+import { useTranslation } from "react-i18next";
+import { TRANSLATION_KEYS } from "../i18n/constants";
 
 export interface Todo {
   id?: string;
@@ -20,6 +22,7 @@ export interface Todo {
 }
 
 export default function TodoList() {
+  const { t } = useTranslation();
   const [todo, setTodo] = useState<string>("");
   function addTodoSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
@@ -39,16 +42,18 @@ export default function TodoList() {
     <>
       <Header />
       <Box w="100%" p={3}>
-        <h1>My todos</h1>
+        <h1>{t(TRANSLATION_KEYS.HOME.TITLE)}</h1>
         <form onSubmit={addTodoSubmit}>
           <FormControl my={5}>
-            <FormLabel>New todo</FormLabel>
+            <FormLabel>{t(TRANSLATION_KEYS.HOME.NEW_TODO)}</FormLabel>
             <Input
               type="text"
               value={todo}
               onChange={(e) => setTodo(e.target.value)}
             />
-            <FormHelperText>What do you wanna add to your do?</FormHelperText>
+            <FormHelperText>
+              {t(TRANSLATION_KEYS.HOME.ADD_TODO_HELPER)}
+            </FormHelperText>
           </FormControl>
           <Button
             type="submit"
@@ -57,7 +62,7 @@ export default function TodoList() {
             variant="outline"
             size="sm"
           >
-            Add
+            {t(TRANSLATION_KEYS.HOME.NEW_TODO_BUTTON)}
           </Button>
         </form>
       </Box>
