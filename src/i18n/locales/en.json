@@ -3,6 +3,14 @@
     "TITLE": "My todos",
     "NEW_TODO": "New todo",
     "NEW_TODO_BUTTON": "Add",
-    "ADD_TODO_HELPER": "What do you wanna add to your do?"
+    "FORM": {
+      "TITLE": "Create new todo",
+      "FIELDS": {
+        "TITLE": "Title",
+        "DESCRIPTION": "Description"
+      }
+    },
+    "ADD_TODO_HELPER": "What do you wanna add to your do?",
+    "ERROR_EMPTY_TODO": "You can't add an empty todo"
   }
 }

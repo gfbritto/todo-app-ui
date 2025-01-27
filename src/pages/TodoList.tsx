@@ -2,9 +2,10 @@ import {
   Box,
   Button,
   FormControl,
-  FormHelperText,
+  FormErrorMessage,
   FormLabel,
   Input,
+  Textarea,
 } from "@chakra-ui/react";
 import Header from "../components/Header";
 import { FormEvent, useState } from "react";
@@ -23,38 +24,59 @@ export interface Todo {
 
 export default function TodoList() {
   const { t } = useTranslation();
-  const [todo, setTodo] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  const [newTodoTitle, setNewTodoTitle] = useState<string>("");
+  const [newTodoDescription, setNewTodoDescription] = useState<string>("");
+
   function addTodoSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
+    if (!newTodoTitle.trim()) {
+      setError(t(TRANSLATION_KEYS.HOME.ERROR_EMPTY_TODO));
+      return;
+    }
+
+    setError(null);
     const newTodo: Todo = {
       id: Math.random().toString(36).substr(2, 9),
-      title: todo,
-      description: "",
+      title: newTodoTitle,
+      description: newTodoDescription,
       createdAt: new Date(),
       order: todos.length + 1,
     };
     setTodos([...todos, newTodo]);
-    setTodo("");
+    setNewTodoTitle("");
+    setNewTodoDescription("");
   }
 
-  const [todos, setTodos] = useState<Todo[]>([]);
   return (
     <>
       <Header />
       <Box w="100%" p={3}>
-        <h1>{t(TRANSLATION_KEYS.HOME.TITLE)}</h1>
+        <h1>{t(TRANSLATION_KEYS.HOME.FORM.TITLE)}</h1>
+
         <form onSubmit={addTodoSubmit}>
-          <FormControl my={5}>
-            <FormLabel>{t(TRANSLATION_KEYS.HOME.NEW_TODO)}</FormLabel>
+          <FormControl my={5} isInvalid={!!error}>
+            <FormLabel>{t(TRANSLATION_KEYS.HOME.FORM.FIELDS.TITLE)}</FormLabel>
             <Input
               type="text"
-              value={todo}
-              onChange={(e) => setTodo(e.target.value)}
+              value={newTodoTitle}
+              onChange={(e) => setNewTodoTitle(e.target.value)}
             />
-            <FormHelperText>
-              {t(TRANSLATION_KEYS.HOME.ADD_TODO_HELPER)}
-            </FormHelperText>
+            {error && <FormErrorMessage>{error}</FormErrorMessage>}
           </FormControl>
+
+          <FormControl my={5}>
+            <FormLabel>
+              {t(TRANSLATION_KEYS.HOME.FORM.FIELDS.DESCRIPTION)}
+            </FormLabel>
+            <Textarea
+              value={newTodoDescription}
+              onChange={(e) => setNewTodoDescription(e.target.value)}
+            />
+          </FormControl>
+
           <Button
             type="submit"
             rightIcon={<AddIcon />}

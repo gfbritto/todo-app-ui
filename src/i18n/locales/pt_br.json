@@ -3,6 +3,14 @@
     "TITLE": "Minhas tarefas",
     "NEW_TODO": "Nova tarefa",
     "NEW_TODO_BUTTON": "Adicionar",
-    "ADD_TODO_HELPER": "O que você gostaria de adicionar?"
+    "FORM": {
+      "TITLE": "Criar nova tarefa",
+      "FIELDS": {
+        "TITLE": "Título",
+        "DESCRIPTION": "Descrição"
+      }
+    },
+    "ADD_TODO_HELPER": "O que você gostaria de adicionar?",
+    "ERROR_EMPTY_TODO": "Você não pode adicionar uma tarefa vazia"
   }
 }

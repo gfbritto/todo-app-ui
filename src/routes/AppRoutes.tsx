@@ -5,7 +5,7 @@ const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/home" element={<TodoList />} />
-      <Route path="/" element={<Navigate to="/home" />} />
+      <Route path="/" element={<TodoList />} />
       <Route path="*" element={<Navigate to="/home" />} />
     </Routes>
   );
