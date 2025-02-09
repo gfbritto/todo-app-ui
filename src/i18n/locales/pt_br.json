@@ -12,5 +12,9 @@
     },
     "ADD_TODO_HELPER": "O que você gostaria de adicionar?",
     "ERROR_EMPTY_TODO": "Você não pode adicionar uma tarefa vazia"
+  },
+  "FOOTER": {
+    "OWNER": "Desenvolvido por Gfbritto",
+    "PORTFOLIO": "Meu portfólio"
   }
 }

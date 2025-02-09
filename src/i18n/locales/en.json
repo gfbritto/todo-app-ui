@@ -12,5 +12,9 @@
     },
     "ADD_TODO_HELPER": "What do you wanna add to your do?",
     "ERROR_EMPTY_TODO": "You can't add an empty todo"
+  },
+  "FOOTER": {
+    "OWNER": "Developed by Gfbritto",
+    "PORTFOLIO": "My portfolio"
   }
 }

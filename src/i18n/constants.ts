@@ -13,6 +13,10 @@ export const TRANSLATION_KEYS = {
     ADD_TODO_HELPER: "HOME.ADD_TODO_HELPER",
     ERROR_EMPTY_TODO: "HOME.ERROR_EMPTY_TODO",
   },
+  FOOTER: {
+    OWNER: "FOOTER.OWNER",
+    PORTFOLIO: "FOOTER.PORTFOLIO",
+  },
 } as const;
 
 export type TranslationKeys = keyof typeof TRANSLATION_KEYS;

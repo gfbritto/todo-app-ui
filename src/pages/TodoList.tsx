@@ -13,6 +13,7 @@ import { AddIcon } from "@chakra-ui/icons";
 import TodoItem from "../components/TodoItem";
 import { useTranslation } from "react-i18next";
 import { TRANSLATION_KEYS } from "../i18n/constants";
+import Footer from "../components/Footer";
 
 export interface Todo {
   id?: string;
@@ -55,7 +56,6 @@ export default function TodoList() {
       <Header />
       <Box w="100%" p={3}>
         <h1>{t(TRANSLATION_KEYS.HOME.FORM.TITLE)}</h1>
-
         <form onSubmit={addTodoSubmit}>
           <FormControl my={5} isInvalid={!!error}>
             <FormLabel>{t(TRANSLATION_KEYS.HOME.FORM.FIELDS.TITLE)}</FormLabel>
@@ -93,6 +93,7 @@ export default function TodoList() {
           <TodoItem todo={todo} key={todo.id} />
         ))}
       </Box>
+      <Footer />
     </>
   );
 }
