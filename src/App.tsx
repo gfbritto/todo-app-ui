@@ -1,14 +1,15 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import TodoList from "./pages/TodoList";
 import theme from "./styles/Theme";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <>
-        <TodoList />
-      </>
-    </ChakraProvider>
+    <BrowserRouter basename="/todo-app-ui">
+      <ChakraProvider theme={theme}>
+        <AppRoutes />
+      </ChakraProvider>
+    </BrowserRouter>
   );
 }
 

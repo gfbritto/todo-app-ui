@@ -1,0 +1,22 @@
+export const TRANSLATION_KEYS = {
+  HOME: {
+    TITLE: "HOME.TITLE",
+    NEW_TODO: "HOME.NEW_TODO",
+    NEW_TODO_BUTTON: "HOME.NEW_TODO",
+    FORM: {
+      TITLE: "HOME.FORM.TITLE",
+      FIELDS: {
+        TITLE: "HOME.FORM.FIELDS.TITLE",
+        DESCRIPTION: "HOME.FORM.FIELDS.DESCRIPTION",
+      },
+    },
+    ADD_TODO_HELPER: "HOME.ADD_TODO_HELPER",
+    ERROR_EMPTY_TODO: "HOME.ERROR_EMPTY_TODO",
+  },
+  FOOTER: {
+    OWNER: "FOOTER.OWNER",
+    PORTFOLIO: "FOOTER.PORTFOLIO",
+  },
+} as const;
+
+export type TranslationKeys = keyof typeof TRANSLATION_KEYS;
