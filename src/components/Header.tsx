@@ -1,9 +1,11 @@
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import Logo from '../assets/logo.svg'
 
 import {
   Box,
   Button,
   Flex,
+  Img,
   Select,
   Stack,
   useColorMode,
@@ -22,7 +24,10 @@ export default function Header() {
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box>Todo App</Box>
+            <Box display="flex" alignItems="center">
+              <Img src={Logo} alt="Todo app logo" width="9" height="9" />
+              <Box ml={2}>Todo App</Box>
+            </Box>
           <Flex>
             <Stack direction={"row"} spacing={7} alignItems={"center"}>
               <Select
